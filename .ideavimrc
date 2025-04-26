@@ -1,0 +1,111 @@
+" Basic Vim Setup
+" ---------------
+set nocompatible
+set number
+set relativenumber
+set showcmd
+set scrolloff=5
+set visualbell
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set backspace=indent,eol,start
+set clipboard=unnamedplus
+set history=1000
+set idearefactormode=select
+
+" Enable emulated plugins
+set surround
+set commentary
+set NERDTree
+
+" Leader key (from VS Code config)
+let mapleader = " "
+
+" Custom Mappings (from VS Code config)
+" ------------------------------------
+" Insert mode
+inoremap jj <Esc>
+
+" Normal mode
+" Buffer navigation
+nnoremap bp :bprevious<CR>
+nnoremap bn :bnext<CR>
+
+" Splits
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>s :split<CR>
+
+" Pane navigation
+nnoremap <leader>h <Action>(FocusLeftEditor)
+nnoremap <leader>j <Action>(FocusEditorBelow)
+nnoremap <leader>k <Action>(FocusEditorAbove)
+nnoremap <leader>l <Action>(FocusRightEditor)
+
+" File operationsctivateTerminalToolWindow)
+nnoremap <leader>w :w!<CR>
+nnoremap <leader>q :q!<CR>
+nnoremap <leader>x :x!<CR>
+
+" Diagnostics
+nnoremap [d <Action>(GotoPreviousError)
+nnoremap ]d <Action>(GotoNextError)
+nnoremap <leader>ca <Action>(QuickFix)
+
+" File and code navigation
+nnoremap <leader>f <Action>(SearchEverywhere)
+nnoremap <leader>p <Action>(ReformatCode)
+nnoremap gh <Action>(ShowHoverInfo)
+
+" Visual mode
+vnoremap < <Action>(EditorUnindentSelection)
+vnoremap > <Action>(EditorIndentSelection)
+vnoremap J <Action>(MoveLineDown)
+vnoremap K <Action>(MoveLineUp)
+vnoremap <leader>c <Action>(CommentByLineComment)
+
+" Terminal navigation
+nnoremap <C-S-t> <Action>(ActivateTerminalToolWindow)
+nnoremap <C-S-n> <Action>(NewTerminal)
+nnoremap <C-S-w> <Action>(CloseContent)
+
+" File explorer (NERDTree)
+nnoremap <C-e> :NERDTreeToggle<CR>
+nnoremap <leader>nf :action NewFile<CR>
+nnoremap <leader>nr :action RenameElement<CR>
+nnoremap <leader>nd :action NewDir<CR>
+nnoremap <leader>dd :action DeleteElement<CR>
+
+" Emmet
+nnoremap <C-S-5> <Action>(EmmetMatchPair)
+
+" Basic Vim Mappings
+" ------------------
+nnoremap <leader>fs :w<CR>
+nnoremap <leader>fq :q<CR>
+nnoremap <leader>/ :nohlsearch<CR>
+nnoremap j gj
+nnoremap k gk
+nnoremap <leader>b :buffer<CR>
+
+" Harpooner Mappings
+" ------------------
+" Toggle quick menu
+nnoremap <leader>hm <Action>(HarpoonerToggleQuickMenu)
+
+" Add/toggle file
+nnoremap <leader>ha <Action>(HarpoonerToggleFile)
+
+" Open specific harpooned files
+nnoremap <leader>1 <Action>(HarpoonerOpenFile0)
+nnoremap <leader>2 <Action>(HarpoonerOpenFile1)
+nnoremap <leader>3 <Action>(HarpoonerOpenFile2)
+nnoremap <leader>4 <Action>(HarpoonerOpenFile3)
+
+" Navigate harpooned files
+nnoremap <leader>hn <Action>(HarpoonerNextFileAction)
+nnoremap <leader>hp <Action>(HarpoonerPreviousFileAction)
+
+" Clear Harpoon menu
+nnoremap <leader>hc <Action>(HarpoonerClearMenu)
