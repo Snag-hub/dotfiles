@@ -67,7 +67,12 @@ end)
 
 -- Windows specific configuration
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-  config.default_prog = { "powershell.exe", "-NoLogo" }
+  config.default_prog = { "pwsh.exe", "-NoLogo", "-NoExit" }
+
+	config.use_ime = true
+	config.enable_kitty_keyboard = true
+	config.default_cursor_style = "BlinkingBlock"
+
 
   config.launch_menu = {}
   table.insert(config.launch_menu, { label = "PowerShell", args = { "powershell.exe", "-NoLogo" } })
