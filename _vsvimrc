@@ -1,0 +1,84 @@
+" ===============================
+"   VsVim Configuration (2022)
+" ===============================
+
+" ===============================
+set clipboard=unnamed
+" ===============================
+
+" Set leader key
+let mapleader = " "
+
+" Escape insert mode using 'jj'
+inoremap jj <Esc>
+
+" -----------------------------------
+" Normal Mode Keybindings
+" -----------------------------------
+
+" Buffer navigation (changed to <leader>bn / <leader>bp)
+nnoremap <leader>bn :vsc Window.NextTab<CR>
+nnoremap <leader>bp :vsc Window.PreviousTab<CR>
+
+" Create horizontal and vertical splits
+nnoremap <leader>v :vsc Window.NewVerticalTabGroup<CR>
+nnoremap <leader>s :vsc Window.NewHorizontalTabGroup<CR>
+
+" Navigate between editor panes
+nnoremap <leader>h :vsc Window.LeftTabGroup<CR>
+nnoremap <leader>j :vsc Window.BelowTabGroup<CR>
+nnoremap <leader>k :vsc Window.AboveTabGroup<CR>
+nnoremap <leader>l :vsc Window.RightTabGroup<CR>
+
+" Solution Explorer / Project View
+nnoremap <leader>e :vsc View.SolutionExplorer<CR>
+
+" Save, quit, write-quit
+nnoremap <leader>w :w!<CR>
+nnoremap <leader>q :q!<CR>
+nnoremap <leader>x :x!<CR>
+
+" Quick fix navigation
+nnoremap [d :vsc View.PreviousError<CR>
+nnoremap ]d :vsc View.NextError<CR>
+
+" Quick fix suggestions
+nnoremap <leader>ca :vsc Edit.QuickActionsForPosition<CR>
+
+" Search (like Ctrl+Q / SearchEverything in VS)
+nnoremap <leader>f :vsc Edit.GoToAll<CR>
+
+" Format document
+nnoremap <leader>p :vsc Edit.FormatDocument<CR>
+
+" Show definition
+nnoremap gh :vsc Edit.PeekDefinition<CR>
+
+" Command Palette (VS Command Window)
+nnoremap <leader>P :vsc View.CommandWindow<CR>
+
+" Toggle Solution Explorer
+nnoremap <leader>E :vsc View.SolutionExplorer<CR>
+
+" -----------------------------------
+" Visual Mode Keybindings
+" -----------------------------------
+
+" Indent while staying in visual mode
+vnoremap < <gv
+vnoremap > >gv
+
+" Move selected lines up/down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Toggle comment
+vnoremap <leader>c :vsc Edit.ToggleLineComment<CR>
+
+" -----------------------------------
+" Extra Scrolling Shortcuts
+" -----------------------------------
+
+" Move 15 lines at a time
+nnoremap <C-j> 15j
+nnoremap <C-k> 15k
